@@ -1,0 +1,40 @@
+from Logic import *
+# Главная функция программы
+def main():
+    while True:
+        print("\nМеню магазина:")
+        print("1. Показать товары")
+        print("2. Выбрать товар и разместить заказ")
+        print("3. Поиск товара")
+        print("4. Добавить товар в корзину")
+        print("5. Показать корзину")
+        print("6. Выйти из магазина")
+
+        choice = input("\nВыберите действие: ")
+
+        if choice == "1":
+            show_menu(shop_menu)
+        elif choice == "2":
+            place_order()
+        elif choice == "3":
+            query = input("Введите поисковый запрос: ")
+            found_items = search_item(query)
+            if found_items:
+                print("Найдены следующие товары:")
+                for i, found_item in enumerate(found_items, start=1):
+                    print(f"{i}. {found_item}")
+            else:
+                print("Товар не найдены.")
+        elif choice == "4":
+            add_to_cart()
+        elif choice == "5":
+            show_cart()
+        elif choice == "6":
+            print("До свидания!")
+            break
+        else:
+            print("Неверный выбор. Нужно выбрать от 1-6")
+
+
+if __name__ == "__main__":
+    main()
